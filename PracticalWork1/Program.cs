@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleHelpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,17 +10,41 @@ namespace PracticalWork1
     class Program
     {
         static void Main(string[] args)
-        {
-            UserList list = new UserList();
-           
-            while (true)
+        {       
+            
+            try
             {
-                string fullname = GetName();
-                UserProfile.Genders gender = GetGender();//genders datu tips
-                DateTime birthdate = GetDate();
-                list.Add(fullname, gender, birthdate);               
-                Console.Read();
+                UserList list = new UserList();     
+                while (true)
+                {
+                    try
+                    {
+                        string fullname = ConsoleInput.GetName("Enter name");
+                        UserProfile.Genders gender = GetGender();//genders datu tips
+                        DateTime birthdate = ConsoleInput.GetDate("Enter birthdate");
+                        list.Add(fullname, gender, birthdate);
+
+                        Console.WriteLine("Add another? (y/n)");
+                        string input = Console.ReadLine().ToLower();
+                        if(input=="n")
+                        {
+                            break;
+                        }
+                    }
+                    catch (InputExceptions ex)//inputExceptions musu kluda
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Unexpected error! {0}", ex.Message);
+            }         
+               
+                Console.Read();
+            
             
             //1.ievada vārdu
             //1.2.ievada dzimumu(DateTime.TryParse)
@@ -29,38 +54,7 @@ namespace PracticalWork1
            // Console.Read();
 
         }
-        public static DateTime GetDate()
-        {
-
-            Console.WriteLine("Enter your birth date(yyyy/mm/dd): ");
-            string input = Console.ReadLine();
-
-            if (DateTime.TryParse(input, out DateTime birthdate))
-            {              
-                return birthdate;                
-            }
-            else
-            {
-                Console.WriteLine("Error");
-                return GetDate();
-            }          
-        }
-        public static string GetName()
-        {
-            Console.WriteLine("Enter name: ");
-            string name = Console.ReadLine();
-            name = name.Trim();
-
-            if(!String.IsNullOrEmpty(name))
-            {
-                return name;
-            }
-            else
-            {
-                Console.WriteLine("Empty text!");
-                return GetName();
-            }
-        }
+        
         public static UserProfile.Genders GetGender()
         {
             Console.WriteLine("Enter your gender(male of female): ");

@@ -29,7 +29,7 @@ namespace PracticalWork1
 
         public int UserAge()
         {
-            return DateTime.Today.Year - BirthDate.Year;
+            return DateTime.Today.Year - BirthDate.Year;//atrast google year bet nav menesi C#calculate user age! papildinat
 
         }
     }

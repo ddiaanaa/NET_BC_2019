@@ -8,9 +8,9 @@ namespace Day4_Abstraction
 {
     interface IPlayer
     {
-        public int GuessNumber()
-        {
-
-        }
+        int GuessNumber();
+        bool IsNumberGuessed(int number);
+        string GetName();
+      
     }
 }

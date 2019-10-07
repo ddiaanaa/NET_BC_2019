@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2D96A1FC-2371-49D6-8626-3EDD72FA5982}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>PracticalWork1</RootNamespace>
-    <AssemblyName>PracticalWork1</AssemblyName>
+    <ProjectGuid>{0952FA9C-A9DF-4827-A7B7-791D67097FB8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ConsoleHelpers</RootNamespace>
+    <AssemblyName>ConsoleHelpers</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,20 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputExceptions.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="BaseConsoleReader.cs" />
+    <Compile Include="ConsoleInput.cs" />
+    <Compile Include="DateReader.cs" />
+    <Compile Include="IntigerReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserList.cs" />
-    <Compile Include="UserProfile.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConsoleHelpers\ConsoleHelpers.csproj">
-      <Project>{0952fa9c-a9df-4827-a7b7-791d67097fb8}</Project>
-      <Name>ConsoleHelpers</Name>
-    </ProjectReference>
+    <Compile Include="TextReader.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

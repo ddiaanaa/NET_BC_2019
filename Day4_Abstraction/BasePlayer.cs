@@ -6,17 +6,28 @@ using System.Threading.Tasks;
 
 namespace Day4_Abstraction
 {
-    class BasePlayer : IPlayer
+    public abstract class BasePlayer : IPlayer
     {
         public string Name;
         public int CurrentGuess;
-        public bool IsNumberGuessed(int number)
-        {
-            return false;
-        }
-        abstract string GetName()
-        {
 
+        public BasePlayer()
+        {
+            Name = GetName();
         }
+        public virtual bool IsNumberGuessed(int number)
+        {
+            if(number == CurrentGuess)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public abstract string GetName();
+        public abstract int GuessNumber();
+      
     }
 }

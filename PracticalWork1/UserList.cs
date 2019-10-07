@@ -12,12 +12,11 @@ namespace PracticalWork1
 
         public void Add(string fullname, UserProfile.Genders gender, DateTime birthdate)
         {
-            if(birthdate > DateTime.Today)
+            if(birthdate > DateTime.Now)
             {
                 throw new InputExceptions("Date is incorrect! You date is in the future!");
-            }
-            DateTime y = new DateTime(1800, 1, 1);
-            if(birthdate < y)
+            }            
+            if(birthdate < new DateTime(1800, 1, 1))
             {
                 throw new InputExceptions("Date is incorrect! It was many years ago...");
             }
@@ -34,7 +33,8 @@ namespace PracticalWork1
             //2.datums nedrīkst būt mazāks par 01.01.1800.
             //3.vārds nedrīkst pārsniegt 20 simbolus
 
-            UserProfile user = new UserProfile(fullname, gender, birthdate);
+            UserProfile user = new UserProfile(fullname, gender, birthdate); //visas funkcijas kas ir UserProfile klase caur mainigo user mes varam izsaukt
+            Console.WriteLine(user.UserAge());
             users.Add(user);
         }
     }

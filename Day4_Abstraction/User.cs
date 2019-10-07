@@ -6,8 +6,21 @@ using System.Threading.Tasks;
 
 namespace Day4_Abstraction
 {
-    class User : BasePlayer
+    public class User : BasePlayer
     {
+        public override string GetName()
+        {
+            Console.WriteLine("Enter your name: ");
+            string name = Console.ReadLine();
 
+            return name;
+        }
+        public override int GuessNumber()
+        {
+            Console.WriteLine("Enter positive integer: ");
+            int number = int.Parse(Console.ReadLine());
+
+            return number;
+        }
     }
 }
