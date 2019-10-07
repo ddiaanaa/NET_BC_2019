@@ -8,10 +8,19 @@ namespace PracticalWork1
 {
     class UserProfile
     {
+        //public const char MALE = 'M';
+        //public const char FEMALE = 'F'; konstantes
+
+        public enum Genders //enumerators = tips, kas ierobežo konkrētas vērtības; enumi sākas ar 0 numerācija
+        { 
+            Male,
+            Female
+        
+        }
         public string FullName;
-        public char Gender;
+        public Genders Gender;
         public DateTime BirthDate;
-        public UserProfile(string fullname, char gender, DateTime birthdate)
+        public UserProfile(string fullname, Genders gender, DateTime birthdate)
         {
             Gender = gender;
             FullName = fullname;

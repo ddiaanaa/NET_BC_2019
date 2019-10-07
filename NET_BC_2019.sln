@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticalWork1", "PracticalWork1\PracticalWork1.csproj", "{2D96A1FC-2371-49D6-8626-3EDD72FA5982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day4_Abstraction", "Day4_Abstraction\Day4_Abstraction.csproj", "{EAE2ED03-ED73-4002-BF4A-C98988C3185D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2D96A1FC-2371-49D6-8626-3EDD72FA5982}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D96A1FC-2371-49D6-8626-3EDD72FA5982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D96A1FC-2371-49D6-8626-3EDD72FA5982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAE2ED03-ED73-4002-BF4A-C98988C3185D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAE2ED03-ED73-4002-BF4A-C98988C3185D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAE2ED03-ED73-4002-BF4A-C98988C3185D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAE2ED03-ED73-4002-BF4A-C98988C3185D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
