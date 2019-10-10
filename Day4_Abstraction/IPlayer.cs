@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Day4_Abstraction
 {
-    interface IPlayer
+    public interface IPlayer
     {
         int GuessNumber();
         bool IsNumberGuessed(int number);

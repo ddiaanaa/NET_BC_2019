@@ -6,35 +6,62 @@ using System.Threading.Tasks;
 
 namespace Day4_Abstraction
 {
-    class Game
+    public class Game
     {
-        public int CurrentNumber;
-        IPlayer PlayerOne;
-        IPlayer PlayerTwo;
+        private int CurrentNumber;
+        private IPlayer PlayerOne;
+        private IPlayer PlayerTwo;
+        /// <summary>
+        /// 1. Method generates a new random number (1 -500) and sets it in a variable "CurrentNumber".
+        /// 2. Create variables PlayerOne and PlayerTwo.
+        /// 2.1. PlayerOne = User;
+        /// 2.2. PlayerTwo = Robot.
+        /// </summary>
         public void StartNewGame()
         {
-            Random randomNumberGenrator = new Random();
-            int CurrentGuess = randomNumberGenrator.Next(1, 500);
-            
-            User = PlayerOne;
-            Robot = PlayerTwo;
+            CurrentNumber = new Random().Next(1, 500);
+
+            PlayerOne = new User();
+            PlayerTwo = new Robot();
         }
+        /// <summary>
+        /// 1. Main game loop which contains PlayerOne turn and PlayerTwo turn:
+        /// 1.1. PlayerOne guesses the number:
+        /// 1.1.1 If guess is correct, break the loop and PlayerOne wins;
+        /// 1.2. PlayerTwo guesses the number:
+        /// 1.2.1 If guess is correct, break the loop and PlayerTwo wins.
+        /// </summary>
         public void Loop()
         {
             while(true)
             {
-                PlayerTurn(PlayerOne);
-                if(CurrentNumber == IPlayer.GuessNumber)
+                Console.WriteLine("Player one turn: ");
+                if(PlayerTurn(PlayerOne))
                 {
-
+                    break;
                 }
-                PlayerTurn(PlayerTwo);
+                Console.WriteLine("Player two turn: ");
+                if(PlayerTurn(PlayerTwo))
+                {
+                    break;
+                }
             }
         }
-        public  void PlayerTurn(IPlayer player)
+        /// <summary>
+        /// Bool method which calls IPlayer method 'GuessNumber'. 'GuessNumber' checks and returns bool result if "number" is equal, less or greater to "CurrentGuess".
+        /// </summary>
+        /// <param name="player">number</param>
+        /// <returns>bool true/false</returns>
+        private bool PlayerTurn(IPlayer player)
         {
-            IPlayer.GuessNumber();
-        }
+            player.GuessNumber();
+            bool IsGuessed = player.IsNumberGuessed(CurrentNumber);
 
+            if(IsGuessed)
+            {
+                Console.WriteLine("Player {0} wins", player.GetName());
+            }
+            return IsGuessed;
+        }
     }
 }

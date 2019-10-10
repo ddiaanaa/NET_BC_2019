@@ -13,6 +13,7 @@ namespace Day4_Abstraction
             Game game = new Game();
             game.StartNewGame();
             game.Loop();
+            Console.Read();
        
         }
     }

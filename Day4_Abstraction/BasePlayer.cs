@@ -6,27 +6,60 @@ using System.Threading.Tasks;
 
 namespace Day4_Abstraction
 {
+    /// <summary>
+    /// Create abstract class BasePlayer
+    /// </summary>
     public abstract class BasePlayer : IPlayer
     {
+        /// <summary>
+        /// Variable definition
+        /// </summary>
         public string Name;
-        public int CurrentGuess;
+        /// <summary>
+        /// Variable definition
+        /// </summary>
+        protected int CurrentGuess;
+        /// <summary>
+        /// Variable definition
+        /// </summary>
+        public int NextGuess;
 
+        /// <summary>
+        /// Constructor that sets 'Name' as GetName() returned string
+        /// </summary>        
         public BasePlayer()
         {
             Name = GetName();
         }
+        /// <summary>
+        /// Checks and returns bool result if "number" is equal, less or greater to "CurrentGuess"
+        /// </summary>
+        /// <param name="number">number</param>
+        /// <returns>true/false</returns>
         public virtual bool IsNumberGuessed(int number)
+           
         {
-            if(number == CurrentGuess)
+            if(number > CurrentGuess)
             {
-                return true;
+                Console.WriteLine("{0} is less then number", CurrentGuess);
+                NextGuess = 1;
             }
-            else
+            else if(number<CurrentGuess)
             {
-                return false;
+                Console.WriteLine("{0} is greater then number", CurrentGuess);
+                NextGuess = -1;
             }
+            return number == CurrentGuess;//saīsinājums if (number == CurrentGuess){return true}
         }
+        /// <summary>
+        /// Abstract method
+        /// </summary>
+        /// <returns></returns>
         public abstract string GetName();
+        /// <summary>
+        /// abstract method
+        /// </summary>
+        /// <returns></returns>
         public abstract int GuessNumber();
       
     }

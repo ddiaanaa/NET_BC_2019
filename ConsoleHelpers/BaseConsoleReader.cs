@@ -12,7 +12,7 @@ namespace ConsoleHelpers
         public T GetValue(string message)
         {
 
-            Console.WriteLine("Enter your birth date(yyyy/mm/dd): ");
+            Console.WriteLine(message);
             string input = Console.ReadLine();
 
             if (CheckValue(input, out T value))
