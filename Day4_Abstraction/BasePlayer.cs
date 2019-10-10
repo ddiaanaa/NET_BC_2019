@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Day4_Abstraction
 {
     /// <summary>
-    /// Create abstract class BasePlayer
+    /// Create abstract class BasePlayer that inherites IPlayer interface
     /// </summary>
     public abstract class BasePlayer : IPlayer
     {
