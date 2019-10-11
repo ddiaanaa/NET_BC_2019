@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Day4_Abstraction
 {
     /// <summary>
-    /// Public class User, kas 'atsaucas' uz BasePlayer
+    /// Public class 'User' inherits 'BasePlayer' class.
     /// </summary>
     public class User : BasePlayer
     {

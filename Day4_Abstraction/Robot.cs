@@ -12,7 +12,7 @@ namespace Day4_Abstraction
         /// <summary>
         /// Method that returns string text 'Robot'
         /// </summary>
-        /// <returns>text 'ROBOT'</returns>
+        /// <returns>'ROBOT'</returns>
         public override string GetName()
         {
             return ("ROBOT");

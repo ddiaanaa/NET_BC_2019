@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Day4_Abstraction
 {
     /// <summary>
-    /// Create abstract class BasePlayer that inherites IPlayer interface
+    /// Create abstract class BasePlayer that inherits IPlayer interface
     /// </summary>
     public abstract class BasePlayer : IPlayer
     {
@@ -59,7 +59,7 @@ namespace Day4_Abstraction
         /// <summary>
         /// abstract method
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Name</returns>
         public abstract int GuessNumber();
       
     }
