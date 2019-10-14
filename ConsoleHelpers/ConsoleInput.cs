@@ -20,5 +20,18 @@ namespace ConsoleHelpers
         {
             return new IntigerReader().GetValue(message);
         }
+        public static bool GetBool(string messege)
+        {
+            string answer = GetName(messege).ToLower();
+            return answer == "y" || answer == "yes";
+
+            /*if (answer == "y" || answer = "yes")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }*/
     }
-}
+    }

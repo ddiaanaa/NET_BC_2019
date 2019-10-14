@@ -6,33 +6,50 @@ using System.Threading.Tasks;
 
 namespace Blackjack_game
 {
-    class Deck
+    public class Deck
     {
+        // 4 masti
         string[] suits = new[] { "C", "S", "D", "H" };
-        string[] ranks = new[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "D" };
+        // 13 rangi
+        string[] ranks = new[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 
-        List<Card> cards;
+        List<Card> Cards;
+
+        // Creates and a new list of cards (List<Card>). 
+        // Fills list with all 52 cards (4 suits and 13 ranks)
         public Deck()
         {
-            List<Card> cards = new List<Card>();
-            foreach(string suit in suits)
+            Cards = new List<Card>();
+            foreach (string suit in suits)
             {
-                foreach(string rank in ranks)
+                foreach (string rank in ranks)
                 {
-                    cards.Add(new Card(rank, suit));
+                    Cards.Add(new Card(rank, suit));
                 }
             }
+            //foreach(Suits s in Enum.GetValues(typeof(Suits)))
+            //{
+            //foreach (Ranks r in Enum.GetValues(typeof(Ranks)))
+            //{
+            //    Cards.Add(new Card(r, s));
+            //}
+            //}
         }
+
+        // Randomly orders (shuffles) the list of cards
         public void Shuffle()
         {
             Random rnd = new Random();
-            cards = cards.OrderBy(c => rnd.Next()).ToList();
-            //google sameklēt
+            Cards = Cards.OrderBy(c => rnd.Next()).ToList();
         }
+
+        // Takes the last card from the list. 
+        // Removes it from the list. 
+        // Returns it.
         public Card GetCard()
         {
-            Card card = cards.Last();
-            cards.Remove(card);
+            Card card = Cards.Last();
+            Cards.Remove(card);
 
             return card;
         }

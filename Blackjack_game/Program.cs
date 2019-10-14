@@ -10,6 +10,14 @@ namespace Blackjack_game
     {
         static void Main(string[] args)
         {
+            while(true)
+            {
+                Game game = new Game();
+                game.StartNewGame();
+                game.Loop();
+                Console.Read();
+
+            }
         }
     }
 }

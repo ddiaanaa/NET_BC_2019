@@ -6,37 +6,60 @@ using System.Threading.Tasks;
 
 namespace Blackjack_game
 {
-    class BasePlayer : IBlackjackPlayer //inheritance
+    public abstract class BasePlayer : IBlackjackPlayer //inheritance
     {
-        public int CountPoints() //in
+        protected string Name { get; set; }
+
+        protected List<Card> Cards { get; set; }
+
+        public BasePlayer()
         {
-            int points = Cards.Sum(c => c.GetPoits() == 11);
-            }
+            Cards = new List<Card>();
+            Name = GetName();
         }
 
+        // Returns player’s cards in hand
         public List<Card> GetCards()
         {
-            throw new NotImplementedException();
+            return Cards;
         }
 
-        public string GetName()
+        // Counts total points of player’s cards. 
+        // If total points is over 21 and player has ‘Ace’, 
+        // remove 10 points for each Ace until points <=21 
+        // or there are no more aces.
+        public int CountPoints()
         {
-            throw new NotImplementedException();
+            int points = Cards.Sum(c => c.GetPoints());
+
+            if (points > 21)
+            {
+                int aceCount = Cards.Count(c => c.GetPoints() == 11);
+
+                while (aceCount > 0 && points > 21)
+                {
+                    points -= 10;
+                    aceCount--;
+                }
+            }
+
+            return points;
         }
 
-        public void GiveCard(Card card)
-        {
-           Cards.Add(card);
-        }
-
+        // Returns true if player’s points is over 21, otherwise - false
         public bool IsGameCompleted()
         {
             return CountPoints() > 21;
         }
 
-        public bool WantCard()
+        // Player receives a new card from the deck. 
+        // Adds card to player’s hand.
+        public virtual void GiveCard(Card card)
         {
-            throw new NotImplementedException();
+            Cards.Add(card);
         }
+
+        public abstract string GetName();
+        public abstract bool WantCard();
     }
 }
