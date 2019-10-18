@@ -10,7 +10,7 @@ namespace ConsoleHelpers
     {
         public static DateTime GetDate(string message)
         {
-            return new DateReader().GetValue(message);           
+            return new DateReader().GetValue(message);
         }
         public static string GetName(string message)
         {
@@ -33,5 +33,6 @@ namespace ConsoleHelpers
             {
                 return false;
             }*/
+        }
     }
-    }
+}

@@ -30,7 +30,7 @@ namespace Blackjack_game
         {
             while(!PlayerOne.IsGameCompleted() && PlayerOne.WantCard())
             {
-                var card = new 
+                //var card = new 
             }
 
         }
