@@ -9,19 +9,18 @@ namespace WebShopDescription
     public class UserManager
     {
         private int currentId;
-        private List<User> Users;
+        private static List<User> Users=new List<User>();//statisks neatkarigi no ta cik mums user manager klases, sis saraksts paliek 
         public UserManager()
         {
-            Users = new List<User>();
             currentId = 1;
         }
         public List<User> GetAll()
         {
             return Users;
         }
-        public User GetByEmailAndPassword(int id, string password)
+        public User GetByEmailAndPassword(string email, string password)
         {
-            var user = Users.Find(u => u.Id == id && u.Password ==password);
+            var user = Users.Find(u => u.Email == email && u.Password ==password);
             return user;
         }
         public User GetByEmail(string email)

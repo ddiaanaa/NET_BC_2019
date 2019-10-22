@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebShopDescription
 {
-    class ItemManager
+    public class ItemManager
     {
         private int currentId;
         private List<Item> Items;
@@ -42,6 +42,10 @@ namespace WebShopDescription
         {
             var currentItem = Items.Find(u => u.Id == item.Id);
             currentItem.Title = item.Title;
+            currentItem.Photo = item.Photo;
+            currentItem.CategoryId = item.CategoryId;
+            currentItem.Description = item.Description;
+            currentItem.Price = item.Price;
         }
         //STUB data
         //dummy data
@@ -53,7 +57,7 @@ namespace WebShopDescription
                 Title = "iPhone 11",
                 Price = 1200.0m,
                 Description = "new iPhone",
-                CategoryId = 1
+                CategoryId = 3
 
             });
             Items.Add(new Item()
@@ -62,19 +66,23 @@ namespace WebShopDescription
                 Title = "Trousers",
                 Price = 50.0m,
                 Description = "Black, L size",
-                CategoryId = 2
+                CategoryId = 4
             });
             Items.Add(new Item()
             {
                 Id = 3,
                 Title = "Samsung Galaxy",
-                CategoryId = 1
+                Price = 900.0m,
+                Description = "new Phone",
+                CategoryId = 3
             });
             Items.Add(new Item()
             {
                 Id = 4,
                 Title = "Tshirt",
-                CategoryId = 2
+                Price = 20.0m,
+                Description = "new TShirt, white, S small",
+                CategoryId = 4
             });
         }
 

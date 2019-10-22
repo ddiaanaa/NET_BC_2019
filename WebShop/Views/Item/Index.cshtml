@@ -1,0 +1,62 @@
+﻿@model CatalogModel
+@{
+    ViewData["Title"] = "Index";
+}
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="nav nav-pills nav-stacked">
+                    @foreach (var category in Model.Categories.Where(c => !c.CategoryId.HasValue))
+                    {
+
+                        <li class="active"><a href="#">@category.Title</a></li>
+
+                        @foreach (var subcategory in Model.Categories.FindAll(c => c.CategoryId == category.Id))
+                        {
+                            <li><a asp-controller="Item" asp-action="Index"asp-route-id="@subcategory.Id">@subcategory.Title<span class="badge navbar-right">4</span></a></li>
+
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="col-md-8">
+
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Electronics</a></li>
+                    <li class="active"><a href="#">Mobile</a></li>
+                </ul>
+
+                <div class="row">
+                    @foreach (var item in Model.Items)
+                    {<div class="col-md-4">
+                            <div class="thumbnail">
+                                <a href="">
+                                    <img src="@item.Photo" alt="" style="height:200px; width:242px">
+                                    <div class="caption text-center">
+                                        <h4>@item.Title</h4>
+                                        <p>@item.Price</p>
+                                        <button type="button" class="btn btn-primary btn-sm">Add to cart</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!--<ul class="nav nav-pills nav-stacked">
+        <li><a href="#">Mobile<span class="badge navbar-right">4</span></a></li>
+        <li><a href="#">Computers<span class="badge navbar-right">9</span></a></li>
+        <li><a href="#">TV<span class="badge navbar-right">0</span></a></li>
+    </ul>
+    <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Clothing</a></li>
+        <li><a href="#">Men's clothing<span class="badge navbar-right">0</span></a></li>
+        <li><a href="#">Women's clothing<span class="badge navbar-right">0</span></a></li>
+        <li><a href="#">Kid's wear<span class="badge navbar-right">0</span></a></li>
+    </ul>-->

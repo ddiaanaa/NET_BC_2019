@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebShopDescription
 {
-    class CategoryManager
+    public class CategoryManager
     {
         private int currentId;
         private List<Category> Categories;

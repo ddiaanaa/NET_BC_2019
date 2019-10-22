@@ -1,0 +1,18 @@
+﻿@model List<LogicSample1.User> 
+<!--'sis html fails sanems vienmer so sarakstu ar lietotajiem, izmantojam model =Model, mainigais ar list<>tipa datiem -->
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>User list</h2>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>User name</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr><td>@user.Name</td></tr><!--ar ciklu ejam cauri visam sarakstam un ar html tabulu att'elojam lapa-->
+    }
+</table>
+
+
