@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InternetShop.Extensions;
+using InternetShop.Models;
+using LogicInternetveikals;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebShop.Models;
-using WebShopDescription;
 
-namespace WebShop.Controllers
+namespace InternetShop.Controllers
 {
     public class AccountController : Controller
     {
-        
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult SignIn()
         {
             return View();
@@ -24,27 +28,27 @@ namespace WebShop.Controllers
         [HttpPost]
         public IActionResult SignUp(UserModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 UserManager manager = new UserManager();
-                if(manager.GetByEmail(model.Email)!=null)
+                if (manager.GetByEmail(model.Email) != null)
                 {
                     ModelState.AddModelError("error", "Email already exists!");
                 }
                 else
                 {
-                    manager.Create(new WebShopDescription.User()
+                    manager.Create(new LogicInternetveikals.User()
                     {
-                        Email=model.Email,
-                        Password=model.Password,
+                        Email = model.Email,
+                        Password = model.Password,
                     });
                     TempData["message"] = "Account created";
                     return RedirectToAction("SignIn");
 
                 }
-                
+
             }
-            
+
             return View();
         }
         [HttpPost]
@@ -52,7 +56,7 @@ namespace WebShop.Controllers
         {
             if (ModelState.IsValid)
             {
-              
+
                 UserManager manager = new UserManager();
                 var user = manager.GetByEmailAndPassword(model.Email, model.Password);
                 if (user != null)
@@ -61,12 +65,11 @@ namespace WebShop.Controllers
                     HttpContext.Session.SetUserEmail(user.Email);
 
                     TempData["message"] = "You have succesfully loged in";
-                    return RedirectToAction("index", "item");
+                    return RedirectToAction("index", "category");
                 }
                 else
                 {
                     ModelState.AddModelError("error", "Invalid email/password!");
-
                 }
 
             }

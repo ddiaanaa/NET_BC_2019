@@ -1,10 +1,9 @@
-﻿@using Microsoft.AspNetCore.Http
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebShop</title>
+    <title>@ViewData["Title"] - Sludinājumu portāls</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -18,13 +17,21 @@
     </environment>
 </head>
 <body>
-    <div class="page-header">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Web Shop</a>
-                </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">LOGO</a>
+            </div>
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Sludinājumi</a></li>
                     @if (Context.Session.GetUserEmail() == null)
                     {
                         <li><a asp-controller="Account" asp-action="SignIn"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
@@ -34,18 +41,22 @@
                     else
                     {
                         <li><a href="#">@Context.Session.GetUserEmail()</a></li>
-                        <li><a asp-controller="Account"asp-action="SignOut">Sign Out</a></li>
-                        
-                    }
-                   
-                    <li><a asp-controller="Item" asp-action="Basket">My cart</a></li>
+                        <li><a asp-controller="Account" asp-action="SignOut">Sign Out</a></li>
 
+                    }
                 </ul>
             </div>
-        </nav>
-    </div>
-    <div class="container">
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2019 - InternetShop</p>
+        </footer>
     </div>
 
     <environment include="Development">

@@ -1,0 +1,29 @@
+﻿@model List<WebShopDescription.Item>
+@{
+    ViewData["Title"] = "Basket";
+}
+
+<h2>Basket</h2>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Item basket</div>
+
+    <!-- Table -->
+    <table class="table">
+        <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th></th>
+        </tr>
+        @foreach (var item in Model)//modelis, tas pats ko norādam lapas augšpusē pie
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Price</td>
+                <td>
+                    <a asp-controller="Ītem" asp-action="Delete" asp-route-id="@item.Id">Remove</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

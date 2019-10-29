@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSamples", "WebSamples", 
 	ProjectSection(SolutionItems) = preProject
 		Homework.html = Homework.html
 		Index.html = Index.html
+		Internetveikals.html = Internetveikals.html
 		JavascriptSample.html = JavascriptSample.html
 		Script.js = Script.js
 		StyleCSS.css = StyleCSS.css
@@ -30,9 +31,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopDescription", "WebSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShopTest", "WebShopTest\WebShopTest.csproj", "{B3F153C4-78E9-4379-BAAF-49836057AC55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSample", "WebSample\WebSample.csproj", "{0487F7A1-9ACC-477B-8D97-F4C2A14E7C7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSample", "WebSample\WebSample.csproj", "{0487F7A1-9ACC-477B-8D97-F4C2A14E7C7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShop", "WebShop\WebShop.csproj", "{40637498-3662-4A77-991C-01C886BF12D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShop", "WebShop\WebShop.csproj", "{40637498-3662-4A77-991C-01C886BF12D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetShop", "InternetShop\InternetShop.csproj", "{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicInternetveikals", "LogicInternetveikals\LogicInternetveikals.csproj", "{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +89,14 @@ Global
 		{40637498-3662-4A77-991C-01C886BF12D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40637498-3662-4A77-991C-01C886BF12D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40637498-3662-4A77-991C-01C886BF12D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

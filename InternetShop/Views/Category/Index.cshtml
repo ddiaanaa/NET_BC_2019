@@ -1,0 +1,101 @@
+﻿@model List<LogicInternetveikals.Category>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" role="group" aria-label="...">
+                    <p class="text-right">
+                        <button type="button" class="btn btn-default">Pievienot sludinājumu</button>
+
+                    </p>
+
+                </div>
+            </div>
+           
+            <div class="row">
+                
+                    @foreach(var category in Model.Where(c=> !c.CategoryId.HasValue))
+                    {
+                        <div class="list-group col-md-3">
+    <a href="#" class="list-group-item active">@category.Title</a>
+
+    @foreach (var subcategory in Model.FindAll(c => c.CategoryId == category.Id))
+    {
+        <a class="list-group-item" @*asp-controller="Item" asp-action="Index"asp-route-id="@subcategory.Id"*@>@subcategory.Title<span class="badge navbar-right">0</span></a>
+    }
+                            </div>
+    }
+    @*
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+        <div class="list-group col-md-3">
+            <a href="#" class="list-group-item active">
+                Kategorija
+            </a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+            <a href="#" class="list-group-item">Apakškategorija</a>
+        </div>
+    *@
+</div>
+        </div>
+

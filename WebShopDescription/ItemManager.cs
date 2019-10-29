@@ -49,6 +49,11 @@ namespace WebShopDescription
         }
         //STUB data
         //dummy data
+        public Item Get(int id)
+        {
+            Item item = Items.Find(u => u.Id == id);
+            return item;
+        }
         public void Seed()
         {
             Items.Add(new Item()

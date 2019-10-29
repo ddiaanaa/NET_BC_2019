@@ -37,7 +37,9 @@
                                     <div class="caption text-center">
                                         <h4>@item.Title</h4>
                                         <p>@item.Price</p>
-                                        <button type="button" class="btn btn-primary btn-sm">Add to cart</button>
+                                        <p>
+                                            <a asp-controller="Item" asp-action="Buy" asp-route-id="@item.Id">Add to cart</a>                                      </p>
+                                        
                                     </div>
                                 </a>
                             </div>
