@@ -13,7 +13,7 @@
         @foreach(var ad in Model)
         {
             <tr>
-                <td >@ad.Photo</td>
+                <td >@ad.Title</td>
                 <td>@ad.Description</td>
                 <td>@ad.Price</td>
                 <td><a class="button" asp-controller="Advertisment" asp-action="AdDescription"asp-route-id="@ad.Id">Apskatīt</a></td>
