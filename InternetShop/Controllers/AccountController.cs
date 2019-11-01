@@ -79,7 +79,7 @@ namespace InternetShop.Controllers
         public IActionResult SignOut()
         {
             HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Item");
+            return RedirectToAction("index", "Category");
         }
     }
 }

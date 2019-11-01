@@ -1,0 +1,29 @@
+﻿@model LogicInternetveikals.Advertisment
+@{
+    ViewData["Title"] = "AdDescription";
+}
+<br />
+<table class="table">
+    <tr>
+        <th class="col-md-6">Sludinājuma nosaukums</th>
+        <th class="col-md-6">Apraksts</th>        
+    </tr>
+  
+    
+        <tr>
+            <td><a><img src="@Model.Photo" style="height:250px"></a></td>
+            <td>
+                <p> Cena: @Model.Price</p>
+                <p>Atrašanās vieta: @Model.Location</p>
+                <p>Pievienošanas laiks: @Model.AddingTime</p>
+                @if (Context.Session.GetUserEmail() != null)
+                {
+            <p>Tālrunis: @Model.Telephone</p>
+            <p>Epasts: @Model.Email</p>
+            } 
+            <p>Apraksts: @Model.Description</p>
+            </td>                  
+        </tr>
+    
+</table>
+

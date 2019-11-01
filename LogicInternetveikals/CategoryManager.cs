@@ -53,9 +53,9 @@ namespace LogicInternetveikals
             });
             Categories.Add(new Category()
             {
-                Id = 6,
+                Id = 14,
                 Title = "Computers",
-                CategoryId =1
+                CategoryId = 1
             });
 
             Categories.Add(new Category()

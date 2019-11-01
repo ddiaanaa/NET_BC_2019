@@ -1,0 +1,56 @@
+﻿@model List<LogicInternetveikals.Advertisment>
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+    <table class="table table-bordered table-striped" >
+        <tr>
+            <th class="col-md-3">Attēls</th>
+            <th class="col-md-3">Apraksts</th>
+            <th class="col-md-3">Cena</th>
+            <th class="col-md-3">Papildus informācija</th>
+        </tr>   
+        @foreach(var ad in Model)
+        {
+            <tr>
+                <td >@ad.Photo</td>
+                <td>@ad.Description</td>
+                <td>@ad.Price</td>
+                <td><a class="button" asp-controller="Advertisment" asp-action="AdDescription"asp-route-id="@ad.Id">Apskatīt</a></td>
+            </tr>
+        }
+    </table>
+                    
+                @*
+                        @foreach (var category in Model.Categories.Where(c => !c.CategoryId.HasValue))
+        {
+
+            <li class="active"><a href="#">@category.Title</a></li>
+
+            @foreach (var subcategory in Model.Categories.FindAll(c => c.CategoryId == category.Id))
+            {
+                <li><a asp-controller="Item" asp-action="Index" asp-route-id="@subcategory.Id">@subcategory.Title<span class="badge navbar-right">4</span></a></li>
+
+            }
+        }*@
+
+                @*
+                @foreach (var item in Model.Items)
+                {<div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="">
+                                <img src="@item.Photo" alt="" style="height:200px; width:242px">
+                                <div class="caption text-center">
+                                    <h4>@item.Title</h4>
+                                    <p>@item.Price</p>
+                                    <p>
+                                        <a asp-controller="Item" asp-action="Buy" asp-route-id="@item.Id">Add to cart</a>
+                                    </p>
+
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+        </div>*@
+
