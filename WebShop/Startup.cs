@@ -57,7 +57,7 @@ namespace WebShop
             }
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy(); - ja ir http, ja https (secure) aizkomente
 
             app.UseSession();
 

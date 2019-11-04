@@ -11,6 +11,14 @@ namespace InternetShop.Controllers
 {
     public class AdvertismentController : Controller
     {
+        private CategoryManager _categories;
+        private AdvertismentManager _ads;
+
+        public AdvertismentController(CategoryManager categoryManager, AdvertismentManager adManager)
+        {
+            _categories = categoryManager;
+            _ads = adManager;
+        }
         public IActionResult Index(int id)
         {
             var manager = new AdvertismentManager();

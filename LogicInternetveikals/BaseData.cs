@@ -4,9 +4,8 @@ using System.Text;
 
 namespace LogicInternetveikals
 {
-    public class NewAdd
+    public abstract class BaseData
     {
         public int Id { get; set; }
-        public string Category { get; set; }
     }
 }

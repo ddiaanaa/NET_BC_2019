@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace LogicInternetveikals
 {
-    public class UserManager
+    public class UserManager: BaseManager<User>
     {
-        private int currentId;
-        private static List<User> Users = new List<User>();//statisks neatkarigi no ta cik mums user manager klases, sis saraksts paliek 
-        public UserManager()
+        //private int currentId;
+        //private static List<User> Users = new List<User>();//statisks neatkarigi no ta cik mums user manager klases, sis saraksts paliek 
+        public UserManager(InternetShopDB db): base(db)
         {
-            currentId = 1;
+            //currentId = 1;
         }
-        public List<User> GetAll()
+        protected override DbSet<User> Table
         {
-            return Users;
-        }
+            get
+            {
+                return _db.Users;
+            }
+
+        }        
+             //public List<User> GetAll()
+        //{
+        //    return Users;
+        //}
         public User GetByEmailAndPassword(string email, string password)
         {
             var user = Users.Find(u => u.Email == email && u.Password == password);
@@ -26,43 +35,31 @@ namespace LogicInternetveikals
             var user = Users.Find(u => u.Email == email);
             return user;
         }
-        public User Create(User user)
-        {
-            user.Id = currentId;
-            Users.Add(user);
-            currentId++;
+        //public User Create(User user)
+        //{
+        //    user.Id = currentId;
+        //    Users.Add(user);
+        //    currentId++;
 
-            return user;
-        }
-        public void Delete(int id)
-        {
-            var user = Users.Find(u => u.Id == id);
-            Users.Remove(user);
-        }
+        //    return user;
+        //}
+        //public void Delete(int id)
+        //{
+        //    var user = Users.Find(u => u.Id == id);
+        //    Users.Remove(user);
+        //}
 
-        public void Update(User user)
-        {
-            var currentUser = Users.Find(u => u.Id == user.Id);
-            currentUser.Email = user.Email;
-            currentUser.Id = user.Id;
-        }
-        //STUB data
-        //dummy data
+        //public void Update(User user)
+        //{
+        //    var currentUser = Users.Find(u => u.Id == user.Id);
+        //    currentUser.Email = user.Email;
+        //    currentUser.Id = user.Id;
+        //}
+        ////STUB data
+        ////dummy data
         public void Seed()
         {
-            Users.Add(new User()
-            {
-                Id = 1,
-                Email = "Email 1",
-                Password = "Password 1"
-
-            });
-            Users.Add(new User()
-            {
-                Id = 2,
-                Email = "Email 2",
-                Password = "Password 2"
-            });
+           
         }
     }
 }

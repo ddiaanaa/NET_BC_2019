@@ -3,25 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebShopDescription
 {
-    public class CategoryManager
+    public class CategoryManager :BaseManager<Category>
     {
-        WebShopDB _db; // liek apakšsvītru ja privāta piekļuve, tiek definēts mainīgais klases ietvaros, ko var izmantot citās klasēs
-        public CategoryManager(WebShopDB db)//parametrā saņemam klasi, ko izveidojām, un kas atbilst datubāzes shēmai
+       // WebShopDB _db; // liek apakšsvītru ja privāta piekļuve, tiek definēts mainīgais klases ietvaros, ko var izmantot citās klasēs
+        public CategoryManager(WebShopDB db): base(db)//parametrā saņemam klasi, ko izveidojām, un kas atbilst datubāzes shēmai
         {
-            _db = db;
+            //_db = db;
        
         }
-        public List<Category> GetAll()//vai atgriez tik  kategorijy cik ievadijam
+        protected override DbSet<Category> Table
         {
-            return _db.Categories.ToList();
+            get
+            {
+                return _db.Categories;
+            }
         }
-        public Category Get(int id)//vai atgriez tik daudz precu cik esam definejusi 2 parbaudes ar esosu kategoriju un neesosu
+
+        //public List<Category> GetAll()//vai atgriez tik  kategorijy cik ievadijam
+        //{
+        //    return _db.Categories.ToList();
+        //}
+        //public Category Get(int id)//vai atgriez tik daudz precu cik esam definejusi 2 parbaudes ar esosu kategoriju un neesosu
+        //{
+        //    var category = _db.Categories.FirstOrDefault(c => c.Id == id);
+        //    return category;
+        //}        
+        public void Seed()
         {
-            var category = _db.Categories.FirstOrDefault(c => c.Id == id);
-            return category;
-        }        
+
+        }
     }
 }

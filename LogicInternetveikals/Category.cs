@@ -6,7 +6,7 @@ namespace LogicInternetveikals
 {
     public class Category
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Title { get; set; }       
         public int? CategoryId { get; set; }//jo nullejams var but
     }    

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace WebShopDescription
 {
-    public class Category
+    public class Category : BaseData
     {
-        public int Id { get; set; }       
+        //public int Id { get; set; }       
         public string Title { get; set; }      
         public int? CategoryId { get; set; }//jo nullejams var but
         [NotMapped] //virtuāla kolonna-preču skaits
