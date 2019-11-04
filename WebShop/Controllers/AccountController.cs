@@ -12,7 +12,13 @@ namespace WebShop.Controllers
 {
     public class AccountController : Controller
     {
-        
+        private UserManager _users;     
+
+        public AccountController(UserManager userManager)
+        {
+            _users = userManager;       
+        }
+
         public IActionResult SignIn()
         {
             return View();
@@ -26,14 +32,14 @@ namespace WebShop.Controllers
         {
             if(ModelState.IsValid)
             {
-                UserManager manager = new UserManager();
-                if(manager.GetByEmail(model.Email)!=null)
+                
+                if(_users.GetByEmail(model.Email)!=null)
                 {
                     ModelState.AddModelError("error", "Email already exists!");
                 }
                 else
                 {
-                    manager.Create(new WebShopDescription.User()
+                    _users.Create(new WebShopDescription.User()
                     {
                         Email=model.Email,
                         Password=model.Password,
@@ -51,10 +57,9 @@ namespace WebShop.Controllers
         public IActionResult SignIn(UserSignInModel model)
         {
             if (ModelState.IsValid)
-            {
-              
-                UserManager manager = new UserManager();
-                var user = manager.GetByEmailAndPassword(model.Email, model.Password);
+            {             
+                
+                var user = _users.GetByEmailAndPassword(model.Email, model.Password);
                 if (user != null)
                 {
                     HttpContext.Session.SetInt32("userId", user.Id);

@@ -8,47 +8,20 @@ namespace WebShopDescription
 {
     public class CategoryManager
     {
-        private int currentId;
-        private List<Category> Categories;
-        public CategoryManager()
+        WebShopDB _db; // liek apakšsvītru ja privāta piekļuve, tiek definēts mainīgais klases ietvaros, ko var izmantot citās klasēs
+        public CategoryManager(WebShopDB db)//parametrā saņemam klasi, ko izveidojām, un kas atbilst datubāzes shēmai
         {
-            Categories = new List<Category>();
-            currentId = 1;
+            _db = db;
+       
         }
         public List<Category> GetAll()//vai atgriez tik  kategorijy cik ievadijam
         {
-            return Categories;
+            return _db.Categories.ToList();
         }
         public Category Get(int id)//vai atgriez tik daudz precu cik esam definejusi 2 parbaudes ar esosu kategoriju un neesosu
         {
-            var category = Categories.Find(c => c.Id == id);
+            var category = _db.Categories.FirstOrDefault(c => c.Id == id);
             return category;
-        }
-        public void Seed()
-        {
-            Categories.Add(new Category()
-            {
-                Id = 1,
-                Title = "Electronics",                
-
-            });
-            Categories.Add(new Category()
-            {
-                Id = 2,
-                Title = "Clothing",                
-            });
-            Categories.Add(new Category()
-            {
-                Id = 3,
-                Title = "Mobile",
-                CategoryId = 1
-            });
-            Categories.Add(new Category()
-            {
-                Id = 4,
-                Title = "Men's clothing",
-                CategoryId=2
-            });
-        }
+        }        
     }
 }

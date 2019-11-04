@@ -10,16 +10,27 @@ namespace WebShop.Controllers // sesija ir lietotaja darbibas noteikta laika spr
 {
     public class ItemController : Controller
     {
+        private CategoryManager _categories;
+        private ItemManager _items;
+
+        public ItemController(CategoryManager categoryManager, ItemManager itemManager)
+        {
+            _categories = categoryManager;
+            _items = itemManager;
+        }
         public IActionResult Index(int Id)
         {
-            var manager = new ItemManager();
-            manager.Seed();
-            //var items = manager.GetAll();
-            var items = manager.GetByCategory(Id);
+            //var manager = new ItemManager();
+            //manager.Seed();
+     
 
-            var managerCat = new CategoryManager();
-            managerCat.Seed();
-            var categories = managerCat.GetAll();
+            var items = _items.GetByCategory(Id);   
+  
+            var categories = _categories.GetAll();
+            foreach(var cat in categories)
+            {
+                cat.ItemCount = _items.GetByCategory(cat.Id).Count;
+            }
             var model = new CatalogModel()
             {
                 Items = items,
@@ -29,10 +40,8 @@ namespace WebShop.Controllers // sesija ir lietotaja darbibas noteikta laika spr
             return View(model);
         }
         public IActionResult Buy(int id)
-        {
-            var manager = new ItemManager();
-            manager.Seed();
-            var item = manager.Get();
+        {            
+            var item = _items.Get(id);
             var basket = HttpContext.Session.GetUserBasket();
             if (basket == null)
             {
@@ -50,11 +59,9 @@ namespace WebShop.Controllers // sesija ir lietotaja darbibas noteikta laika spr
 
             if (basket != null)
             {
-                var manager = new ItemManager();
-                manager.Seed();
                 foreach (var id in basket)
                 {
-                    items.Add(manager.Get(id));
+                    items.Add(_items.Get(id));
                 }
 
             }
@@ -66,7 +73,7 @@ namespace WebShop.Controllers // sesija ir lietotaja darbibas noteikta laika spr
         }
         public IActionResult Delete()
         {
-
+            return View();
         }
     }
 }

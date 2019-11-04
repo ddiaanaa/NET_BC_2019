@@ -14,7 +14,7 @@
 
                         @foreach (var subcategory in Model.Categories.FindAll(c => c.CategoryId == category.Id))
                         {
-                            <li><a asp-controller="Item" asp-action="Index"asp-route-id="@subcategory.Id">@subcategory.Title<span class="badge navbar-right">4</span></a></li>
+                            <li><a asp-controller="Item" asp-action="Index"asp-route-id="@subcategory.Id">@subcategory.Title<span class="badge navbar-right">@subcategory.ItemCount</span></a></li>
 
                         }
                     }
