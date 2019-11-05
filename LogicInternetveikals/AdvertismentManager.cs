@@ -1,70 +1,71 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace LogicInternetveikals
 {
-    public class AdvertismentManager :BaseManager<Advertisment>
+    public class AdvertismentManager : BaseManager<Advertisment>
     {
         //private int currentId;
         //private List<Advertisment> Ads;
-            public AdvertismentManager(InternetShopDB db): 
-            base(db)
+        public AdvertismentManager(InternetShopDB db) :
+        base(db)
+        {
+            //Ads = new List<Advertisment>();
+            //currentId = 1;
+        }
+        protected override DbSet<Advertisment> Table
+        {
+            get
             {
-                //Ads = new List<Advertisment>();
-                //currentId = 1;
+                return _db.Advertisments;
             }
-            protected override DbSet<Advertisment>Table
-            {
-                get
-                {
-                    return _db.Advertisments;
-                }
-            }
-    //public List<Advertisment> GetAll()
-    //{
-    //    return Ads;
-    //}
-    public List<Advertisment> GetByCategory(int categoryId)
-            {
-                var ads = _db.Ads.Where(i => i.CategoryId == categoryId).ToList();
-                return ads;
-            }
-            //public Advertisment Create(Advertisment ads)
-            //{
-            //    ads.Id = currentId;
-            //    Ads.Add(ads);
-            //    currentId++;
+        }
+        //public List<Advertisment> GetAll()
+        //{
+        //    return Ads;
+        //}
+        public List<Advertisment> GetByCategory(int categoryId)
+        {
+            var ads = _db.Advertisments.Where(i => i.CategoryId == categoryId).ToList();
+            return ads;
+        }
+        //public Advertisment Create(Advertisment ads)
+        //{
+        //    ads.Id = currentId;
+        //    Ads.Add(ads);
+        //    currentId++;
 
-            //    return ads;
-            //}
-            //public void Delete(int id)
-            //{
-            //    var ads = Ads.Find(u => u.Id == id);
-            //    Ads.Remove(ads);
-            //}
+        //    return ads;
+        //}
+        //public void Delete(int id)
+        //{
+        //    var ads = Ads.Find(u => u.Id == id);
+        //    Ads.Remove(ads);
+        //}
 
-            //public void Update(Advertisment ads)
-            //{
-            //    var currentAds = Ads.Find(u => u.Id == ads.Id);
-            //    currentAds.Title = ads.Title;
-            //    currentAds.Photo = ads.Photo;
-            //    currentAds.CategoryId = ads.CategoryId;
-            //    currentAds.Description = ads.Description;
-            //    currentAds.Price = ads.Price;
-            //    currentAds.Location = ads.Location;
-            //    currentAds.AddingTime = ads.AddingTime;
-            //    currentAds.Telephone = ads.Telephone;
-            //    currentAds.Email = ads.Email;
-            //}
-            ////STUB data
-            ////dummy data
-            public Advertisment Get(int id)
-            {
-                Advertisment ads = _db.Items.FirstOrDefault(u => u.Id == id);
-                return ads;
-            }
+        //public void Update(Advertisment ads)
+        //{
+        //    var currentAds = Ads.Find(u => u.Id == ads.Id);
+        //    currentAds.Title = ads.Title;
+        //    currentAds.Photo = ads.Photo;
+        //    currentAds.CategoryId = ads.CategoryId;
+        //    currentAds.Description = ads.Description;
+        //    currentAds.Price = ads.Price;
+        //    currentAds.Location = ads.Location;
+        //    currentAds.AddingTime = ads.AddingTime;
+        //    currentAds.Telephone = ads.Telephone;
+        //    currentAds.Email = ads.Email;
+        //}
+        ////STUB data
+        ////dummy data
+        //public Advertisment Get(int id)
+        //{
+        //    Advertisment ads = _db.Advertisments.FirstOrDefault(u => u.Id == id);
+        //    return ads;
+        //}
         public void Seed()
         {
             //Ads.Add(new Advertisment()
@@ -152,5 +153,6 @@ namespace LogicInternetveikals
 
             //});
         }
-        }
+    }
+}
 

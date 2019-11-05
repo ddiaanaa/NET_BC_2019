@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LogicInternetveikals
 {
-    public class Category
+    public class Category: BaseData
     {
         //public int Id { get; set; }
         public string Title { get; set; }       

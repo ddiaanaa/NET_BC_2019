@@ -21,17 +21,17 @@ namespace InternetShop.Controllers
         }
         public IActionResult Index(int id)
         {
-            var manager = new AdvertismentManager();
-            manager.Seed();
-            var ads = manager.GetAll();
+            //var manager = new AdvertismentManager();
+            //manager.Seed();
+            var ads = _ads.GetAll();
             return View(ads.FindAll(a => a.CategoryId == id));
            
         }
         public IActionResult AdDescription(int id)
         {
-            var manager = new AdvertismentManager();
-            manager.Seed();
-            var ads = manager.Get(id);
+            //var manager = new AdvertismentManager();
+            //manager.Seed();
+            var ads = _ads.Get(id);
             return View(ads);
 
         }
@@ -40,11 +40,11 @@ namespace InternetShop.Controllers
             //var manager = new AdvertismentManager();
             //var newAd = manager.Create(int id, s);
             AdModel model = new AdModel();
-            CategoryManager categoryManager = new CategoryManager();
-            categoryManager.Seed();
+           //CategoryManager categoryManager = new CategoryManager();
+            //categoryManager.Seed();
 
             model.Email = HttpContext.Session.GetUserEmail();
-            model.Categories = categoryManager.GetAll();
+            model.Categories = _categories.GetAll();
 
             return View(model);
         }

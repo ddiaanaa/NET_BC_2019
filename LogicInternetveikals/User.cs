@@ -2,7 +2,7 @@
 
 namespace LogicInternetveikals
 {
-    public class User
+    public class User:BaseData
     {
         //public int Id { get; set; }
         public string Email { get; set; }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LogicInternetveikals
 {
-    public class Advertisment
+    public class Advertisment:BaseData
     {
        // public int Id { get; set; }
         public string Photo { get; set; }

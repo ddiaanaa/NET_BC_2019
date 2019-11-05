@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,12 +28,12 @@ namespace LogicInternetveikals
         //}
         public User GetByEmailAndPassword(string email, string password)
         {
-            var user = Users.Find(u => u.Email == email && u.Password == password);
+            var user = Table.FirstOrDefault(u => u.Email == email && u.Password == password);
             return user;
         }
         public User GetByEmail(string email)
         {
-            var user = Users.Find(u => u.Email == email);
+            var user = Table.FirstOrDefault(u => u.Email == email);
             return user;
         }
         //public User Create(User user)
