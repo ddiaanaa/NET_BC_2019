@@ -25,6 +25,14 @@ namespace InternetShop.Controllers
             //manager.Seed();
             var ads = _ads.GetAll();
             return View(ads.FindAll(a => a.CategoryId == id));
+            //AdListModel model = new AdListModel();
+            //{
+            //    //sludinājumi kategorijā
+            //    var Advertisment = _ads.GetByCategory(id);
+            //    //atvērtās kategorijas dati
+            //    var Category = _categories.Get(id);
+            //};
+            //return View(model);
            
         }
         public IActionResult AdDescription(int id)
@@ -51,11 +59,28 @@ namespace InternetShop.Controllers
         [HttpPost]
         public IActionResult NewAdd(AdModel model)
         {
-            if(ModelState.IsValid)
+            model.Categories = _categories.GetAll();//post pieprasījuma velreiz japielasa kategorijas (kaut kadi dati get pieprasijuma, japievieno manuali pasiem)
+           
+            if (ModelState.IsValid)
             {
-                //TODO: ieraksta saglabāšana
-            }
-            return View(model);
+                //or var ad = new Ad(){}; _ads.Create(ad);
+                _ads.Create(new LogicInternetveikals.Advertisment()
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    Price = model.Price,
+                    Location = model.Location,
+                    AddingTime = DateTime.Now,
+                    Telephone = model.Telephone,
+                    Email = model.Email,
+                    CategoryId = model.CategoryId
+                });
+               //TempData["message"] = "New advertisment created"; //kur var pievienot sludinājumu,jūs esat veiksm
+                return RedirectToAction(nameof(Index), new {id =model.CategoryId });//? kas ir nameof?
+            }            
+                return View(model);
+                    
+ 
         }
     }
 }

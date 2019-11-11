@@ -17,14 +17,15 @@ namespace InternetShop.Models
         [Required]
         public string Description { get; set; }
         [Required]
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
         public string Location { get; set; }
         public DateTime AddingTime { get; set; }
         [Required]
-        public int? Telephone { get; set; }
+        public string Telephone { get; set; }
         public string Email { get; set; }
         public int? CategoryId { get; set; }//jo nullejams var but
+        
 
         public List<Category> Categories { get; set; }
     }

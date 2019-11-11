@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace LogicInternetveikals
@@ -13,8 +14,13 @@ namespace LogicInternetveikals
         public decimal Price { get; set; }
         public string Location { get; set; }
         public DateTime AddingTime { get; set; }
-        public int Telephone { get; set; }
+        public string Telephone { get; set; }
         public string Email { get; set; }
-        public int? CategoryId { get; set; }//jo nullejams var but
+        public int? CategoryId { get; set; }//jo nullejams var but     
+        [NotMapped]//tas neatbilst datubazei
+        public Category Category { get; set; }
+
+      
+       
     }
 }

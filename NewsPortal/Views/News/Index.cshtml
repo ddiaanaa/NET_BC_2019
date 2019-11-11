@@ -1,0 +1,27 @@
+﻿@model NewsModel
+@{
+    ViewData["Title"] = "Index";
+}
+    <ul class="nav nav-pills">
+        @foreach (var topic in Model.Topics)
+        {
+
+            if (topic.Id == Model.News.CategoryId)
+            {
+                <li class="active" role="presentation"><a asp-action="Index" asp-controller="Topics" asp-route-id="@topic.Id">@topic.Title</a></li>
+            }
+            else
+            {
+                <li role="presentation"><a asp-action="Index" asp-controller="Topics" asp-route-id="@topic.Id">@topic.Title</a></li>
+            }
+
+        }
+    </ul>
+<h2>@Model.News.Title</h2>
+
+<p>@Model.News.Author<span>@Model.News.AddingTime</span></p>
+<div>
+    <a><img src="@Model.News.Photo" alt="New's photo" style="width:100%" /></a>
+</div>
+<div>@Model.News.Description</div>
+

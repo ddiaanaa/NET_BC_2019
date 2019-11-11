@@ -35,9 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSample", "WebSample\WebS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebShop", "WebShop\WebShop.csproj", "{40637498-3662-4A77-991C-01C886BF12D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetShop", "InternetShop\InternetShop.csproj", "{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetShop", "InternetShop\InternetShop.csproj", "{E4821FBF-FBE8-4C39-9BC8-CB08ABECBBDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicInternetveikals", "LogicInternetveikals\LogicInternetveikals.csproj", "{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicInternetveikals", "LogicInternetveikals\LogicInternetveikals.csproj", "{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortalLogic", "NewsPortalLogic\NewsPortalLogic.csproj", "{FC3DF276-7041-4C64-8016-802ACBF6B275}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal", "NewsPortal\NewsPortal.csproj", "{8752BB98-AF2C-4A98-8F30-765508D147C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +101,14 @@ Global
 		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC3DF276-7041-4C64-8016-802ACBF6B275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC3DF276-7041-4C64-8016-802ACBF6B275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC3DF276-7041-4C64-8016-802ACBF6B275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC3DF276-7041-4C64-8016-802ACBF6B275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8752BB98-AF2C-4A98-8F30-765508D147C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8752BB98-AF2C-4A98-8F30-765508D147C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8752BB98-AF2C-4A98-8F30-765508D147C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8752BB98-AF2C-4A98-8F30-765508D147C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

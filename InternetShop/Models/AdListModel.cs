@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace InternetShop.Models
 {
-    public class CategoryModel
+    public class AdListModel
     {
-        public List<Category> Categories { get; set; }
         public List<Advertisment> Ads { get; set; }
-        public int AdvertismentCount { get; set; }
+        public Category Category { get; set; }
+
     }
 }
