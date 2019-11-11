@@ -39,9 +39,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetShop", "InternetSho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicInternetveikals", "LogicInternetveikals\LogicInternetveikals.csproj", "{767AB464-6D48-4DA7-8B3B-6CB6DB123E56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortalLogic", "NewsPortalLogic\NewsPortalLogic.csproj", "{FC3DF276-7041-4C64-8016-802ACBF6B275}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsPortalLogic", "NewsPortalLogic\NewsPortalLogic.csproj", "{FC3DF276-7041-4C64-8016-802ACBF6B275}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsPortal", "NewsPortal\NewsPortal.csproj", "{8752BB98-AF2C-4A98-8F30-765508D147C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsPortal", "NewsPortal\NewsPortal.csproj", "{8752BB98-AF2C-4A98-8F30-765508D147C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{42F5E959-4EAC-401D-95D1-C7EC9D7DA7F4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\source\repos\SQL\SQLQuery_new.sql = ..\..\..\..\source\repos\SQL\SQLQuery_new.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,8 +17,12 @@ namespace NewsPortal.Controllers
             _topics = topicsManager;
             _news = newsManager;
         }
-        public IActionResult Index(int id, int categoryId)
+        public IActionResult Index(int id)
         {
+            if(id==0)
+            {
+                id = 1;
+            }
             var model = new TopicsAndNews();
             model.Topics = _topics.GetTopics();
             model.News = _news.GetByCategory(id);
